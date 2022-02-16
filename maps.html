@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Google Map</title>
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta charset="utf-8">
+		<style>		  
+		  #map { 
+			height: 300px;	
+			width: 300px;			
+		  }		  
+		</style>		
+	</head>	
+	<body>		
+		<div style="padding:10px">
+            <a href="https://www.google.com/maps/place/31%C2%B042'57.5%22N+35%C2%B047'52.6%22E/@latitude,35.7957961,17z/data=!3m1!4b1!4m14!1m7!3m6!1s0x151cacd00bad3bc5:0x4d6d5834c1003e2b!2sMadaba!3b1!8m2!3d31.7193405!4d35.7932432!3m5!1s0x0:0xb854235d7e9200cb!7e2!8m2!3d31.7159611!4d35.7979431"  target="_blank" ><div id="map"></div></a>
+			
+		</div>
+		
+		<script type="text/javascript">
+		var map;
+		
+		function initMap() {							
+			var latitude = 31.715961; // YOUR LATITUDE VALUE
+			var longitude = 35.797943; // YOUR LONGITUDE VALUE
+			
+			var myLatLng = {lat: latitude, lng: longitude};
+			
+			map = new google.maps.Map(document.getElementById('map'), {
+			  center: myLatLng,
+			  zoom: 14					
+			});
+					
+			var marker = new google.maps.Marker({
+			  position: myLatLng,
+			  map: map,
+			  //title: 'Hello World'
+			  
+			  // setting latitude & longitude as title of the marker
+			  // title is shown when you hover over the marker
+			  title: latitude + ', ' + longitude 
+			});			
+		}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=YOUR-API-KEY&callback=initMap"
+		async defer></script>
+	</body>	
+</html>
